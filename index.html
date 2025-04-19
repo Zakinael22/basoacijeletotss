@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UMKM Makanan</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .sidebar {
+      background-color: #343a40;
+    }
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      margin: 10px 0;
+    }
+    .sidebar a:hover {
+      color: #ffc107;
+    }
+    @media (min-width: 768px) {
+      #sidebarMenu {
+        display: block !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar for Mobile -->
+<nav class="navbar navbar-dark bg-dark d-md-none">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <span class="navbar-brand">UMKM Makanan</span>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <div class="col-md-3 col-12 collapse d-md-block sidebar p-3" id="sidebarMenu">
+        <h4 class="text-warning">UMKM Makanan</h4>
+        <a href="#">Beranda</a>
+        <a href="https://wa.me/6289636209682?text=Halo%2C%20saya%20ingin%20bertanya%20mengenai%20menu%20makanan." target="_blank">Kontak</a>
+      </div>
+      
+
+    <!-- Content -->
+    <div class="col-md-9 col-12 p-4">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mb-4">
+        <h2 class="mb-3 mb-md-0">Baso Aci Jeletot</h2>
+        <input type="text" id="searchInput" class="form-control w-100 w-md-25" placeholder="Cari Menu...">
+      </div>
+
+      <div class="row" id="menuContainer">
+        <!-- Menu Item -->
+        <div class="col-md-4 mb-4 menu-item">
+          <div class="card h-100">
+            <img src="https://i.ibb.co.com/NnCWqBMF/pedas.jpg" class="card-img-top" alt="Baso Aci Jeletot">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Baso Aci Jeletot Pedas</h5>
+              <p class="card-text">Rasa Pedas Mantapp.</p>
+              <a class="btn btn-success mt-auto" target="_blank" href="https://wa.me/6289636209682?text=Saya%20mau%20pesan%20Baso%20Aci%20Jeletot%20Pedas">Pesan Sekarang</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4 menu-item">
+          <div class="card h-100">
+            <img src="https://i.ibb.co.com/39S29JNW/original.jpg" class="card-img-top" alt="Baso Aci Original">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">"Baso Aci Jeletot Original</h5>
+              <p class="card-text">Tidak Pedas.</p>
+              <a class="btn btn-success mt-auto" target="_blank" href="https://wa.me/6289636209682?text=Saya%20mau%20pesan%20Baso%20Aci%20Jeletot%20Original">Pesan Sekarang</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const searchInput = document.getElementById("searchInput");
+  const menuItems = document.querySelectorAll(".menu-item");
+
+  searchInput.addEventListener("input", function () {
+    const query = searchInput.value.toLowerCase();
+    menuItems.forEach(function (item) {
+      const title = item.querySelector(".card-title").textContent.toLowerCase();
+      item.style.display = title.includes(query) ? "block" : "none";
+    });
+  });
+</script>
+</body>
+</html>
